@@ -39,7 +39,7 @@ useEffect(() => {
             <div className="contenedorBoton">    
                 <div className="botones">
                     {boton.map((color,index)=>(
-                    <button
+                    <button class="botonP04"
                     key={index}
                     onClick={cambiarColor}
                     style={{backgroundColor:color}}
@@ -48,11 +48,11 @@ useEffect(() => {
                 </div>
 
                 <div>
-                    <h2>{mensaje}</h2>
+                    <h2 class="h2P04">{mensaje}</h2>
                 </div>
 
                 <div>
-                    <h2>Cantidad de Intentos : {intento}</h2>
+                    <h2 class="h2P04">Cantidad de Intentos : {intento}</h2>
                 </div>
             </div>
         )

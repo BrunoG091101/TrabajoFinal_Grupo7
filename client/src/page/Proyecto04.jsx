@@ -1,3 +1,4 @@
+import '../assets/css/Proyecto04.css'
 import Numero from '../components/Proyecto04/numeros'
 import Validar from '../components/Proyecto04/validar'
 import Saludo from '../components/Proyecto04/saludo'
@@ -9,7 +10,7 @@ function Proyecto04() {
     let random=Numero(numeroMin,numeroMax);
 
     return (
-        <div>
+        <div class="P04">
             <Saludo/>
             <Validar random = {random}/>
             <Botones/>

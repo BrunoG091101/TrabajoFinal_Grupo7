@@ -29,7 +29,7 @@ function Validar({random}){
     return(
         <div className="contenedorValidar">
             <div>
-                <h2>Por Favor Ingresa un numero del 0 al 100</h2>
+                <h2 class="h2P04">Por Favor Ingresa un numero del 0 al 100</h2>
             </div >
                 <div>
                 <input type = "number"
@@ -45,8 +45,8 @@ function Validar({random}){
                 </div>
                 
             <div>
-                <h2> {resultado} </h2>
-                <h2> Cantidad de intentos :{intentos} </h2>
+                <h2 class="h2P04"> {resultado} </h2>
+                <h2 class="h2P04"> Cantidad de intentos :{intentos} </h2>
             </div>
         </div>
     )
