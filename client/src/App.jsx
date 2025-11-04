@@ -6,6 +6,7 @@ import Error from "./page/Error";
 import { Container } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Proyectos from "./page/Proyectos";
+import Proyecto04 from "./page/Proyecto04";
 import Login from "./components/Login";
 import ProtectorRutas from "./components/ProtectorRutas";
 function App() {
