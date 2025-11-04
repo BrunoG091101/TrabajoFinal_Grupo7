@@ -1,9 +1,7 @@
-import '../../assets/css/Proyecto04.css'
-
 function Saludo () {
     return(
         <div>
-            <h1>Hola usuario</h1>
+            <h1 class="h1P04">Hola usuario</h1>
         </div>
     )
 }
