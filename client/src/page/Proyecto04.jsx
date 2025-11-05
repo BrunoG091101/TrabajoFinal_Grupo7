@@ -1,19 +1,29 @@
+import Tabs from "react-bootstrap/Tabs";
+import Tab from "react-bootstrap/Tab";
+
 import '../assets/css/Proyecto04.css'
-import Numero from '../components/Proyecto04/numeros'
-import Validar from '../components/Proyecto04/validar'
-import Saludo from '../components/Proyecto04/saludo'
-import Botones from '../components/Proyecto04/botones'
+import Ejercicio01_P04 from '../components/Proyecto04/Ejercicio01_P04'
+import Ejercicio02_P04 from '../components/Proyecto04/Ejercicio02_P04'
 
 function Proyecto04() {
-    let numeroMax=100;
-    let numeroMin=1;
-    let random=Numero(numeroMin,numeroMax);
-
     return (
         <div class="P04">
-            <Saludo/>
-            <Validar random = {random}/>
-            <Botones/>
+            <Tabs
+                defaultActiveKey="EJ1P04"
+                id="tabs-proyecto02"
+                className="mb-3"
+                justify
+            >
+                <Tab eventKey="EJ1P04" title="Ejercicio 01">
+                    <h1 class="h1P04">Adivina el número</h1>
+                    <Ejercicio01_P04 />
+                </Tab>
+
+                <Tab eventKey="EJ2P04" title="Ejercicio 02">
+                    <h1 class="h1P04">Empareja los botones</h1>
+                    <Ejercicio02_P04 />
+                </Tab>
+            </Tabs>
         </div>
     )
 }
