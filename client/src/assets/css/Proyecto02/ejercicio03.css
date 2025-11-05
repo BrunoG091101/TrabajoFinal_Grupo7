@@ -1,0 +1,12 @@
+.Ejercicio03_contenedor{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+.Tarjeta{
+    width: 100%;
+}
