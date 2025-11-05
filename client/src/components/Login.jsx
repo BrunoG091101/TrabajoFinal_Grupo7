@@ -2,6 +2,8 @@ import { useState, useContext } from "react";
 import { Container, Row, Col, Form, Button, Alert } from "react-bootstrap";
 import AutorizacionContext from "../context/AutorizacionContext";
 
+
+
 export const Login = () => {
   const { login } = useContext(AutorizacionContext);
   const [username, setUserName] = useState("");
@@ -30,7 +32,7 @@ export const Login = () => {
           {loginError && <Alert variant="danger">{loginError}</Alert>}
 
           <Form onSubmit={handleSubmit}>
-            <Form.Group controlId="formBasicUsername">
+            <Form.Group controlId="formBasicUsername" className="input_text">
               <Form.Label>Usuario</Form.Label>
               <Form.Control
                 type="text"
