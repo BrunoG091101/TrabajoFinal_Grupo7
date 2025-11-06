@@ -7,6 +7,7 @@ import { Container } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 //zona proyectos
 import Proyecto02 from "./page/Proyecto02";
+import Proyecto03 from "./page/Proyecto03";
 import Proyecto04 from "./page/Proyecto04";
 //fin zona proyectos
 import Login from "./components/Login";
@@ -32,6 +33,7 @@ function App() {
           {/* Ruta protegida para ADMINISTRATIVO */}
           <Route element={<ProtectorRutas allowedRoles={["ADMINISTRATIVO"]} />}>
             <Route path="/proyecto02" element={<Proyecto02 />} />
+            <Route path="/proyecto03" element={<Proyecto03/>}/>
             <Route path="/proyecto04" element={<Proyecto04 />} />
           </Route>
 
