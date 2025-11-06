@@ -1,0 +1,129 @@
+.contenedorP01_G {
+    width: calc(100%);
+    min-height: 100dvh;
+    margin-inline: auto;
+    border-style: solid;
+    border-radius: 1rem;
+    border-width: 10px;
+    background-color: rgb(121, 61, 12);
+}
+
+.encabezado {
+    background-color: rgb(167, 123, 83);;
+    border-radius: 2rem;
+    border-style: solid;
+    border-color: blanchedalmond;
+    display: flex;
+    align-items: center;
+    padding: 1rem 2rem;
+}
+
+.empresa {
+    font-size: 4rem;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: #000000;
+    width: 100%;
+    text-align: center;
+}
+
+.menu {
+    margin-top: 2rem;
+    background-color: #FF722E;
+    border-radius: 5rem;
+    border-style: solid;
+    border-color: rgb(194, 71, 0);
+    display: flex;
+    justify-content: space-evenly;
+    
+}
+
+.opcionesMenu {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #000000;
+}
+
+.productos {
+    padding: 4rem 21px;
+    display: flex;
+    grid-gap: 28px;
+    width: 100%;
+    overflow: hidden;
+}
+
+.lateral {
+    background-color: #009229;
+    border-radius: 1rem;
+    border-style: solid;
+    border-width: 4px;
+    border-color: #fa4747;
+    display: flex;
+    padding-inline: 1rem;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5rem;
+}
+
+.opcionesLateral {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #8d0968;
+}
+
+.inventario {
+    background-color: #DB5253;
+    border-radius: 1rem;
+    border-style: outset;
+    border-width: 5px;
+    display: grid;
+    grid-gap: 4rem;
+    padding: 4rem;
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.producto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.imagenProducto {
+    border-width: 6px;
+    border-style: solid;
+}
+
+.nombreProducto {
+    text-align: center;
+    color: #05cf6a;
+}
+
+.precioProducto {
+    text-align: center;
+    color: #000000;
+}
+
+.pie {
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    background-color: #3f2697;
+    display: grid;
+    padding: 1rem;
+    grid-template-columns: repeat(5, 1fr);
+}
+
+.interes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.interes:not(.dev) {
+    justify-content: space-evenly;
+}
+
+.categoriaPie {
+    color: rgb(133, 250, 0);
+}
+
+.opcionesCat {
+    color: #ddff62;
+}

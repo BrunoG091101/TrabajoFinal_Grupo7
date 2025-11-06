@@ -5,6 +5,11 @@
     text-align: center;
 }
 
+input{
+    width: 500px;
+    height: 30px;
+}
+
 .P04 {
     display: flex;
     flex-direction: column;
@@ -13,20 +18,21 @@
     min-height: 100vh;
 }
 
-.contenedorBoton{
-    border-style: groove;
-    border-color: #000000;
-    border-radius: 4px;
-    border-width: 8px;
-    display: flex;
-    padding-top: 40px;
-    padding-left: 60px;
-    padding-bottom: 40px;
-    padding-right: 60px;
-    flex-direction: column;
-    gap: 20px;
-    justify-content: center;
+.h1P04 {
+    border-style:ridge;
+    border-radius: 12px;
+    border-width: 4px;
+    color: #000000;
+    font-size: 3.2em;
+    line-height: 1.1;
+    padding-bottom: 12px;
 }
+
+.h2P04 {
+    color: #000000;
+}
+
+/* Estilo Ejercicio 01 */
 
 .contenedorValidar{
     border-style: groove;
@@ -43,11 +49,6 @@
     justify-content: center;
 }
 
-input{
-    width: 500px;
-    height: 30px;
-}
-
 .botonesValidar{
     display: flex;
     padding: 20px;
@@ -56,20 +57,27 @@ input{
     gap: 20px;
 }
 
+/* Estilo Ejercicio 02 */
+
+.contenedorBoton{
+    border-style: groove;
+    border-color: #000000;
+    border-radius: 4px;
+    border-width: 8px;
+    display: flex;
+    padding-top: 40px;
+    padding-left: 60px;
+    padding-bottom: 40px;
+    padding-right: 60px;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+}
+
 .botones{
     display: flex;
     justify-content: center;
     gap: 20px;
-}
-
-.h1P04 {
-    color: #000000;
-    font-size: 3.2em;
-    line-height: 1.1;
-}
-
-.h2P04 {
-    color: #000000;
 }
 
 .botonP04 {
