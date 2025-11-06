@@ -40,9 +40,12 @@ function Layout() {
 
               {/* Mostrar "Proyectos" solo si el rol es ADMINISTRATIVO */}
               {isAuthenticated && user?.rol === "ADMINISTRATIVO" && (
-                <Nav.Link as={NavLink} to="/proyectos">
-                  Proyectos
-                </Nav.Link>
+                <NavDropdown title="Proyectos" id="Proyectos-dropdown">
+                  <NavDropdown.Item href="/proyecto02">Proyecto02</NavDropdown.Item>
+                  <NavDropdown.Item href="/proyecto03">Proyecto03</NavDropdown.Item>
+                  <NavDropdown.Item href="/proyecto04">Proyecto04</NavDropdown.Item>
+
+                </NavDropdown>
               )}
             </Nav>
 
