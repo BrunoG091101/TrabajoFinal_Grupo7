@@ -42,6 +42,7 @@ function Layout() {
               {isAuthenticated && user?.rol === "ADMINISTRATIVO" && (
                 <NavDropdown title="Proyectos" id="Proyectos-dropdown">
                   <NavDropdown.Item href="/proyecto02">Proyecto02</NavDropdown.Item>
+                  <NavDropdown.Item href="/proyecto03">Proyecto03</NavDropdown.Item>
                   <NavDropdown.Item href="/proyecto04">Proyecto04</NavDropdown.Item>
 
                 </NavDropdown>
