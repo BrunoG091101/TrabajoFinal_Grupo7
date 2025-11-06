@@ -49,7 +49,7 @@ function Ejercicio02_P04() {
                 key={index}
                 onClick={cambiarColor}
                 style={{backgroundColor:color}}
-                >boton {index+1}</button>
+                >Botón {index+1}</button>
                 ))}
             </div>
 
@@ -57,8 +57,8 @@ function Ejercicio02_P04() {
                 <h2 class="h2P04">{mensaje}</h2>
             </div>
 
-            <div>
-                <h2 class="h2P04">Cantidad de Intentos: {intento}</h2>
+            <div class>
+                <h2 class="h2P04">Cantidad de intentos: {intento}</h2>
             </div>
         </div>
     )

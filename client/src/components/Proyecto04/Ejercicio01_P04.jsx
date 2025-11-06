@@ -59,6 +59,9 @@ function Ejercicio01_P04() {
 
             <div>
                 <h2 className="h2P04">{resultado}</h2>
+            </div>
+
+            <div class>
                 <h2 className="h2P04">Cantidad de intentos: {intentos}</h2>
             </div>
         </div>

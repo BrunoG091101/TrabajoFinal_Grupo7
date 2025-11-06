@@ -6,6 +6,7 @@ import Error from "./page/Error";
 import { Container } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 //zona proyectos
+import PagPrin_G from "./components/Proyectos01/GASPAR/Pag-Principal_G";
 import Proyecto02 from "./page/Proyecto02";
 import Proyecto03 from "./page/Proyecto03";
 import Proyecto04 from "./page/Proyecto04";
