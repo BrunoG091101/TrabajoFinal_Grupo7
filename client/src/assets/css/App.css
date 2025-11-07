@@ -24,3 +24,17 @@
 .ej03_boton button{
   width: 50%;
 }
+.ej05_contenedor{
+  display: flex;
+  flex-direction: column;
+
+}
+.ej05_contenedor input{
+width: 50%;
+}
+.mb-3{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
