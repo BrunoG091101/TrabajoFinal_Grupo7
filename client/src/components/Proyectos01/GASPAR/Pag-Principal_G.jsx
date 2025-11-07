@@ -11,7 +11,7 @@ import tecladoP01_G from "../../../assets/image/Proy01_GASPAR/tecladoP01_G.jpg";
 
 function PagPrin_G() {
     return(
-        <div class="contenedorP01_G">
+        <div class="contenedorP01_G pag">
             <div class="encabezado">
                 <img
                 src={logoP01_G}
@@ -173,8 +173,8 @@ function PagPrin_G() {
 
                 <div class="interes">
                     <h2 class="categoriaPie"> Atención </h2>
-                    <h3 class="opcionesCat"> Lun a Vie 8:30 a 12:30 y de 16:30 a 20:30 </h3>
-                    <h3 class="opcionesCat"> Sáb 8:30 a 13 </h3>
+                    <h3 class="opcionesCat"> Lun a Vie 8:30-12:30 y 16:30-20:30 </h3>
+                    <h3 class="opcionesCat"> Sáb 8:30-13 </h3>
                 </div>
 
                 <div class="interes dev">
