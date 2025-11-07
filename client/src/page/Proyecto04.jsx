@@ -11,7 +11,7 @@ function Proyecto04() {
             <Tabs
                 defaultActiveKey="EJ1P04"
                 id="tabs-proyecto02"
-                className="mb-3"
+                className="mb-2"
                 justify
             >
                 <Tab eventKey="EJ1P04" title="Ejercicio 01">
