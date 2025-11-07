@@ -9,6 +9,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Proyecto02 from "./page/Proyecto02";
 import Proyecto03 from "./page/Proyecto03";
 import Proyecto04 from "./page/Proyecto04";
+import Proyecto05 from "./page/Proyecto05";
 //fin zona proyectos
 import Login from "./components/Login";
 import ProtectorRutas from "./components/ProtectorRutas";
@@ -35,6 +36,7 @@ function App() {
             <Route path="/proyecto02" element={<Proyecto02 />} />
             <Route path="/proyecto03" element={<Proyecto03/>}/>
             <Route path="/proyecto04" element={<Proyecto04 />} />
+            <Route path="/proyecto05" element={<Proyecto05 />} />
           </Route>
 
           <Route path="*" element={<Error />} />
