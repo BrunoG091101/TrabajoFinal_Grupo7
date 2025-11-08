@@ -56,3 +56,39 @@ width: 50%;
 .card:hover .card-text {
   max-height: 500px; 
 }
+/* Juego estrella*/
+.contenedorBoton {
+  position: relative;
+  background-image: url("../image/fondoEstrella.jpeg");
+  background-size:100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 900px;
+  height: 300px;
+  border: 2px solid black;
+  margin: 20px auto;
+  overflow:hidden;
+}
+.contenedorBoton button:hover{
+  transform: scale(1.5,1.5);
+}
+.contenedorBoton button{
+  background-color: transparent;
+  width: 80;
+  height: 40;
+  border-radius:100%;
+  border: none;
+}
+.mensaje{
+  display: flex;
+  justify-content: center;
+}
+.mensaje h2{
+  display: flex;
+  justify-content: center;
+}
+.botonReinicio{
+  display: flex;
+  justify-content: center;
+}
+/* Fin Juego estrella */
