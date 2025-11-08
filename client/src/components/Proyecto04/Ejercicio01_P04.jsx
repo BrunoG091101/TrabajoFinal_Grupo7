@@ -36,7 +36,7 @@ function Ejercicio01_P04() {
     }
 
     return (
-        <div className="contenedorValidar">
+        <div className="contenedorValidarP04">
             <div class="Instruccion_E01">
                 <h2 className="h2P04">Por favor, ingresa un número del 0 al 100</h2>
             </div>

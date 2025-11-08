@@ -12,7 +12,7 @@ function PrimerJuego() {
     const navigate = useNavigate();
 
     useEffect(() => {
-        navigate(`/juegos/nivel0${nivelActual}`);
+        navigate(`/juegos/primerJuego/nivel0${nivelActual}`);
     }, [nivelActual, navigate]);
 
     const manejarCompletado = () => {
@@ -46,7 +46,7 @@ function PrimerJuego() {
 
     return (
         <div style={{ textAlign: "center", marginTop: "2rem" }}>
-            <h1> Color Match - Level 1 {nivelActual}</h1>
+            <h1> Color Match - Level {nivelActual}</h1>
             
             {renderNivel()}
 

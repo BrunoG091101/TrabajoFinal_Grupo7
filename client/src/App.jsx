@@ -2,13 +2,19 @@ import { Routes, Route } from "react-router-dom";
 import Layout from "./components/Loyout";
 import About from "./page/AboutUs";
 import Juegos from "./page/Juegos";
+<<<<<<< Updated upstream
+=======
+//Zona Juegos
+import JuegoEstrella from "./components/JuegoEstrella";
+import PrimerJuego from "./components/JuegosIngles/PrimerJuego/PrimerJuego"
+//Fin zona Juego
+>>>>>>> Stashed changes
 import Error from "./page/Error";
 import { Container } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 //zona proyectos
 import PagPrin_G from "./components/Proyectos01/GASPAR/Pag-Principal_G";
 import Desafio_G from "./components/Proyectos01/GASPAR/Desafio_G";
-import PrimerJuego from "./components/JuegosIngles/PrimerJuego/PrimerJuego"
 import Proyecto02 from "./page/Proyecto02";
 import Proyecto03 from "./page/Proyecto03";
 import Proyecto04 from "./page/Proyecto04";
@@ -25,6 +31,7 @@ function App() {
           <Route path="/aboutUs" element={<About />} />
 
           {/* Ruta protegida para ALUMNO */}
+<<<<<<< Updated upstream
           <Route
             path="/juegos"
             element={
@@ -33,6 +40,14 @@ function App() {
               </ProtectorRutas>
             }
           />
+=======
+          <Route path="/juegos" element={<ProtectorRutas allowedRoles={["ALUMNO", "ADMINISTRATIVO"]} />}>
+            <Route index element={<Juegos />} />
+            <Route path="juegoEstrella" element={<JuegoEstrella />} />
+            <Route path="primerJuego/*" element={<PrimerJuego />} />
+          </Route>
+
+>>>>>>> Stashed changes
 
           {/* Ruta protegida para ADMINISTRATIVO */}
           <Route element={<ProtectorRutas allowedRoles={["ADMINISTRATIVO"]} />}>

@@ -23,4 +23,101 @@
 }
 .ej03_boton button{
   width: 50%;
+<<<<<<< Updated upstream
 }
+=======
+}
+.ej05_contenedor{
+  display: flex;
+  flex-direction: column;
+
+}
+.ej05_contenedor input{
+width: 50%;
+}
+.mb-3{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.cartasAboutUs {
+  border-style: solid;
+  border-radius: 1rem;
+  display: grid;
+  grid-gap: 6rem;
+  padding: 4rem;
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-columns: repeat(2, 1fr);
+}
+.cartasAboutUs .card-text {
+  max-height: 80px; 
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: max-height 0.5s ease;
+}
+.card:hover .card-text {
+  max-height: 500px; 
+}
+
+.cartaGaspar {
+  background-color: #3183ff;
+  border-style: solid;
+  border-width: 3px;
+  border-color: #3183ff;
+}
+
+.imgGaspar {
+  border-style: solid;
+  border-width: 10px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+  border-color: #31ffba;
+}
+
+.infoGaspar {
+  background-color: #ffffff;
+  border-style: solid;
+  border-width: 9px;
+  border-color: #3183ff;
+}
+
+/* Juego estrella*/
+.contenedorBoton {
+  position: relative;
+  background-image: url("../image/fondoEstrella.jpeg");
+  background-size:100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 900px;
+  height: 300px;
+  border: 2px solid black;
+  margin: 20px auto;
+  overflow:hidden;
+}
+.contenedorBoton button:hover{
+  transform: scale(1.5,1.5);
+}
+.contenedorBoton button{
+  background-color: transparent;
+  width: 80;
+  height: 40;
+  border-radius:100%;
+  border: none;
+}
+.mensaje{
+  display: flex;
+  justify-content: center;
+}
+.mensaje h2{
+  display: flex;
+  justify-content: center;
+}
+.botonReinicio{
+  display: flex;
+  justify-content: center;
+}
+/* Fin Juego estrella */
+>>>>>>> Stashed changes
