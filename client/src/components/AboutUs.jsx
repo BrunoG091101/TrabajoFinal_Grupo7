@@ -1,6 +1,7 @@
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 
+
 import imagenCordoba from "../assets/image/AboutUs/usuario.png";
 import imagenFlores from "../assets/image/AboutUs/usuario.png";
 import imagenIbañez from "../assets/image/AboutUs/usuario.png";
