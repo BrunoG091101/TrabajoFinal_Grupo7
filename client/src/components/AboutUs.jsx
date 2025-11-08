@@ -1,10 +1,11 @@
 import Card from "react-bootstrap/Card";
-import Button from "react-bootstrap/Button"; // ✅ Importar botón
+import Button from "react-bootstrap/Button";
+
 
 import imagenCordoba from "../assets/image/AboutUs/usuario.png";
 import imagenFlores from "../assets/image/AboutUs/usuario.png";
 import imagenIbañez from "../assets/image/AboutUs/usuario.png";
-import imagenGaspar from "../assets/image/AboutUs/usuario.png";
+import imagenGaspar from "../assets/image/AboutUs/imagenGaspar.jpg";
 import logogit from "../assets/image/AboutUs/logoGithub.png";
 
 export default function AboutUs() {
@@ -84,16 +85,16 @@ export default function AboutUs() {
 
             <Card className="cartaGaspar" style={{ width: "24rem", margin: "auto" }}>
                 <div className="imgGaspar">
-                    <Card.Img variant="top" src={imagenGaspar} alt="imagenGaspar" />
+                    <Card.Img variant="top" src={imagenGaspar} alt="imagenGaspar" width="auto" height="auto"/>
                 </div>
                 <Card.Body>
-                    <Card.Title>Bruno Ramiro Gaspar</Card.Title>
+                    <Card.Title className>Bruno Ramiro Gaspar</Card.Title>
                     <Card.Text>
-                     {""}
+                        {"Tengo 24 años y soy estudiante de la Facultad de Ingenieria (UNJU) desde 2023, ya tenía algunos conocimientos básicos de programación antes de ingresar y los reforcé estudiando aquí mientras fui adquiriendo otros nuevos. Las aficiones que más me gustan de esta carrera es programación y diseño de sonido"}
                     </Card.Text>
                     <Button
                         variant="dark"
-                        href="https://github.com/usuarioGaspar"//Cambiar link perfil
+                        href="https://github.com/BrunoG091101"
                         target="_blank"
                     >
                         <img

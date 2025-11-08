@@ -23,6 +23,7 @@
 }
 .ej03_boton button{
   width: 50%;
+
 }
 .ej05_contenedor{
   display: flex;
@@ -56,6 +57,7 @@ width: 50%;
 .card:hover .card-text {
   max-height: 500px; 
 }
+
 /* Juego estrella*/
 .contenedorBoton {
   position: relative;

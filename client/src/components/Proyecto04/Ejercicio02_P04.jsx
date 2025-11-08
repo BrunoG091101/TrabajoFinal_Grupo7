@@ -38,12 +38,12 @@ function Ejercicio02_P04() {
     }, [boton]);
     
     return(
-        <div className="contenedorBoton">
+        <div className="contenedorBotonP04">
             <div classname="Instruccion_E02">
                 <h2 className="h2P04">Haz que 3 o más botones coincidan de color</h2>
             </div>
 
-            <div className="botones">
+            <div className="botonesP04">
                 {boton.map((color,index)=>(
                 <button class="botonP04"
                 key={index}
