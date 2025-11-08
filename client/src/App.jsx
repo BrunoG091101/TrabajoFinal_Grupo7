@@ -2,6 +2,9 @@ import { Routes, Route } from "react-router-dom";
 import Layout from "./components/Loyout";
 import About from "./page/AboutUs";
 import Juegos from "./page/Juegos";
+//Zona Juegos
+import JuegoEstrella from "./components/JuegoEstrella";
+//Fin zona Juego
 import Error from "./page/Error";
 import { Container } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -24,19 +27,16 @@ function App() {
           <Route path="/aboutUs" element={<About />} />
 
           {/* Ruta protegida para ALUMNO */}
-          <Route
-            path="/juegos"
-            element={
-              <ProtectorRutas allowedRoles={["ALUMNO", "ADMINISTRATIVO"]}>
-                <Juegos />
-              </ProtectorRutas>
-            }
-          />
+          <Route path="/juegos" element={<ProtectorRutas allowedRoles={["ALUMNO", "ADMINISTRATIVO"]} />}>
+            <Route index element={<Juegos />} />
+            <Route path="juegoEstrella" element={<JuegoEstrella />} />
+          </Route>
+
 
           {/* Ruta protegida para ADMINISTRATIVO */}
           <Route element={<ProtectorRutas allowedRoles={["ADMINISTRATIVO"]} />}>
             <Route path="/proyecto02" element={<Proyecto02 />} />
-            <Route path="/proyecto03" element={<Proyecto03/>}/>
+            <Route path="/proyecto03" element={<Proyecto03 />} />
             <Route path="/proyecto04" element={<Proyecto04 />} />
             <Route path="/proyecto05" element={<Proyecto05 />} />
           </Route>
