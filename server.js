@@ -8,8 +8,9 @@ app.get('/',(req,res)=>{
 
 //routing
 const archivosDB=require('./conection.js');
-const usuarios=require('./src/model/usuarios.js');
+const usuarios=require('./src/routes/usuarioRoutes.js');
 //midlware
+app.use(express.json());
 app.use('/api',usuarios);
 
 //listening
