@@ -31,15 +31,15 @@ function Layout() {
                 About Us
               </Nav.Link>
 
-              {/* Mostrar "Juegos" si está autenticado o es rol ADMINISTRATIVO*/}
-              {(isAuthenticated || user?.rol==="ADMINISTRATIVO") &&(
+              {/* Mostrar "Juegos" si está autenticado o es rol andmin*/}
+              {(isAuthenticated || user?.rol==="admin") &&(
                 <Nav.Link as={NavLink} to="/juegos">
                   Juegos
                 </Nav.Link>
               )}
 
-              {/* Mostrar "Proyectos" solo si el rol es ADMINISTRATIVO */}
-              {isAuthenticated && user?.rol === "ADMINISTRATIVO" && (
+              {/* Mostrar "Proyectos" solo si el rol es admin */}
+              {isAuthenticated && user?.rol === "admin" && (
                 <NavDropdown title="Proyectos" id="Proyectos-dropdown">
                   <NavDropdown.Item href="/proyecto02">Proyecto02</NavDropdown.Item>
                   <NavDropdown.Item href="/proyecto03">Proyecto03</NavDropdown.Item>
@@ -52,8 +52,15 @@ function Layout() {
             {/* Menú de usuario */}
             {isAuthenticated && user && (
               <Nav className="ms-auto">
-                <NavDropdown title={user.name} id="user-dropdown">
+                <NavDropdown title={user.username} id="user-dropdown">
                   <NavDropdown.Item onClick={logout}>Cerrar sesión</NavDropdown.Item>
+                </NavDropdown>
+              </Nav>
+            )}
+            {!isAuthenticated && !user &&(
+              <Nav className="registrar">
+                <NavDropdown title="Perfil">
+                  <NavDropdown.Item href="/registrar">Registrar</NavDropdown.Item>
                 </NavDropdown>
               </Nav>
             )}

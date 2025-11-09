@@ -18,6 +18,7 @@ import Proyecto05 from "./page/Proyecto05";
 //fin zona proyectos
 import Login from "./components/Login";
 import ProtectorRutas from "./components/ProtectorRutas";
+import Registro from "./page/Registro";
 function App() {
   return (
     <Container>
@@ -25,15 +26,16 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<Login />} />
           <Route path="/aboutUs" element={<About />} />
+          <Route path="/registrar" element={<Registro/>}/>
 
-          {/* Ruta protegida para ALUMNO */}
-          <Route path="/juegos" element={<ProtectorRutas allowedRoles={["ALUMNO", "ADMINISTRATIVO"]} />}>
+          {/* Ruta protegida para alumno */}
+          <Route path="/juegos" element={<ProtectorRutas allowedRoles={["alumno", "admin"]} />}>
             <Route index element={<Juegos />} />
             <Route path="juegoEstrella" element={<JuegoEstrella />} />
           </Route>
 
-          {/* Ruta protegida para ADMINISTRATIVO */}
-          <Route element={<ProtectorRutas allowedRoles={["ADMINISTRATIVO"]} />}>
+          {/* Ruta protegida para admin */}
+          <Route element={<ProtectorRutas allowedRoles={["admin"]} />}>
             <Route path="/proyecto02" element={<Proyecto02 />} />
             <Route path="/proyecto03" element={<Proyecto03 />} />
             <Route path="/proyecto04" element={<Proyecto04 />} />
