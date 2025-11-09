@@ -87,10 +87,10 @@ export default function AboutUs() {
                 <div className="imgGaspar">
                     <Card.Img variant="top" src={imagenGaspar} alt="imagenGaspar" width="auto" height="auto"/>
                 </div>
-                <Card.Body>
-                    <Card.Title className>Bruno Ramiro Gaspar</Card.Title>
+                <Card.Body className="infoGaspar">
+                    <Card.Title>Bruno Ramiro Gaspar</Card.Title>
                     <Card.Text>
-                        {"Tengo 24 años y soy estudiante de la Facultad de Ingenieria (UNJU) desde 2023, ya tenía algunos conocimientos básicos de programación antes de ingresar y los reforcé estudiando aquí mientras fui adquiriendo otros nuevos. Las aficiones que más me gustan de esta carrera es programación y diseño de sonido"}
+                        {"Tengo 24 años y soy estudiante de la Facultad de Ingenieria (UNJU) desde 2023, ya tenía algunos conocimientos básicos de programación antes de ingresar y los reforcé estudiando aquí mientras fui adquiriendo otros nuevos. Las aficiones que más me gustan de esta carrera son programación y diseño de sonido"}
                     </Card.Text>
                     <Button
                         variant="dark"
