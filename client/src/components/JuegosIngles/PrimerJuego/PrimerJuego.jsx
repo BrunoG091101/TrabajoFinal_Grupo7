@@ -26,8 +26,8 @@ function PrimerJuego() {
         }
     };
 
-    const reiniciar = () => {
-        setNivelActual(1);
+    const volverMenu = () => {
+        navigate(`/juegos`)
         setNivelCompletado(false);
     };
 
@@ -65,10 +65,10 @@ function PrimerJuego() {
                         } else {
                             return (
                                 <Button
-                                    onClick={reiniciar}
+                                    onClick={volverMenu}
                                     style={botonEstilo("#2196F3")}
                                 >
-                                    Volver a empezar
+                                    Volver a selección de juegos
                                 </Button>
                             );
                         }
