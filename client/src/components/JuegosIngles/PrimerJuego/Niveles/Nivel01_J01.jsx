@@ -19,6 +19,8 @@ function Nivel01_J01({onNivelCompletado}) {
   const [mensajeFinal, setMensajeFinal] = useState("");
   const tiempoLimite = 2;
   
+  /* Función que servirá para generar los colores y los textos en posiciones aleatorias */
+
   const barajar = (array) => {
     return [...array].sort(() => Math.random() - 0.5);
   };
@@ -30,6 +32,8 @@ function Nivel01_J01({onNivelCompletado}) {
     setColores(coloresMezclados);
     setTextos(textosMezclados);
   }, []);
+
+  /* Función que se activará al hacer click en un botón */
   
   useEffect(() => {
     if (!seleccion) return;
@@ -66,6 +70,8 @@ function Nivel01_J01({onNivelCompletado}) {
     }
   });
 
+  /* Función con la que el jugador interactúa con la página al hacer click */
+
   const manejarClick = (item, tipo) => {
     if (paresEncontrados.includes(item.nombre)) return;
 
@@ -87,9 +93,10 @@ function Nivel01_J01({onNivelCompletado}) {
 
   return (
     <div style={{ textAlign: "center", marginTop: "2rem" }}>
-      <div>
-        {colores.map((c, i) => (
-          <Button
+      <div className="contBotonesN01_J01">
+        <div>
+          {colores.map((c, i) => (
+            <Button
             key={`color-${i}`}
             onClick={() => manejarClick(c, "color")}
             disabled={paresEncontrados.includes(c.nombre)}
@@ -103,14 +110,14 @@ function Nivel01_J01({onNivelCompletado}) {
               opacity: paresEncontrados.includes(c.nombre) ? 0.3 : 1,
               cursor: "pointer",
             }}
-          >
-          </Button>
-        ))}
-      </div>
+            >
+            </Button>
+          ))}
+        </div>
 
-      <div>
-        {textos.map((c, i) => (
-          <Button
+        <div>
+          {textos.map((c, i) => (
+            <Button
             key={`texto-${i}`}
             onClick={() => manejarClick(c, "texto")}
             disabled={paresEncontrados.includes(c.nombre)}
@@ -124,10 +131,11 @@ function Nivel01_J01({onNivelCompletado}) {
               cursor: "pointer",
               opacity: paresEncontrados.includes(c.nombre) ? 0.3 : 1,
             }}
-          >
-            {c.nombre}
-          </Button>
-        ))}
+            >
+              {c.nombre}
+            </Button>
+          ))}
+        </div>
       </div>
 
       {mensaje && (
