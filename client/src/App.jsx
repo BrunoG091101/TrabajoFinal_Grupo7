@@ -5,6 +5,7 @@ import Juegos from "./page/Juegos";
 //Zona Juegos
 import JuegoEstrella from "./components/JuegoEstrella";
 import PrimerJuego from "./components/JuegosIngles/PrimerJuego/PrimerJuego"
+import TercerJuego from "./components/JuegosIngles/TercerJuego/TercerJuego";
 //Fin zona Juego
 import Error from "./page/Error";
 import { Container } from "react-bootstrap";
@@ -34,6 +35,7 @@ function App() {
             <Route index element={<Juegos />} />
             <Route path="juegoEstrella" element={<JuegoEstrella />} />
             <Route path="primerJuego/*" element={<PrimerJuego />} />
+            <Route path="tercerJuego" element={<TercerJuego/>}/>
           </Route>
 
           {/* Ruta protegida para admin */}
