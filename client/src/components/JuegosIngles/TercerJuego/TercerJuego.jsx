@@ -1,10 +1,9 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
+import Correcto from "../../../assets/sound/Correcto.mp3";
+import Incorrecto from "../../../assets/sound/incorecto.mp3";
 
 export default function JuegoFacil() {
-  const navigate = useNavigate();
-
   const numerosIngles = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten"];
   const diasEspañol = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"];
   const diasIngles = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
@@ -15,13 +14,15 @@ export default function JuegoFacil() {
   const [puntaje, setPuntaje] = useState(0);
   const [tipo, setTipo] = useState("");
   const [juegoTerminado, setJuegoTerminado] = useState(false);
+  const [preguntaActual, setPreguntaActual] = useState(1);
+  const totalPreguntas = 10;
 
   function mezclar(lista) {
     return lista.sort(() => Math.random() - 0.5);
   }
 
   function nuevaPregunta() {
-    if (juegoTerminado) return; // no generar nuevas preguntas si ya ganó
+    if (preguntaActual > totalPreguntas) return;
     setMensaje("");
 
     const tipoElegido = Math.random() < 0.5 ? "numero" : "dia";
@@ -63,7 +64,7 @@ export default function JuegoFacil() {
   }, []);
 
   function elegir(opcion) {
-    if (juegoTerminado) return; //no permitir seguir jugando
+    if (juegoTerminado) return;
 
     let correcto = false;
 
@@ -74,64 +75,76 @@ export default function JuegoFacil() {
       correcto = opcion === diasIngles[indice];
     }
 
-    if (correcto) {
-      const nuevoPuntaje = puntaje + 1;
-      setPuntaje(nuevoPuntaje);
-      setMensaje("¡Muy bien!");
+    // Sonido según resultado
+    const sonido = new Audio(correcto ? Correcto : Incorrecto);
+    sonido.play();
 
-      if (nuevoPuntaje >= 6) {
-        setJuegoTerminado(true); // marcar fin del juego
-        setMensaje("¡Excelente! Has terminado el juego.");
-      } else {
-        setTimeout(() => nuevaPregunta(), 800);
-      }
+    if (correcto) {
+      setPuntaje((prev) => prev + 1);
+      setMensaje("✅ ¡Muy bien!");
     } else {
-      setMensaje("Intenta otra vez.");
+      setMensaje("❌ Incorrecto.");
+    }
+
+    // Avanza a la siguiente pregunta o termina
+    if (preguntaActual < totalPreguntas) {
+      setTimeout(() => {
+        setPreguntaActual((prev) => prev + 1);
+        nuevaPregunta();
+      }, 1000);
+    } else {
+      // Terminar juego después de la última pregunta
+      setTimeout(() => {
+        setJuegoTerminado(true);
+        setMensaje(`Juego terminado. Tu puntaje final es ${puntaje + (correcto ? 1 : 0)} de ${totalPreguntas}.`);
+      }, 1000);
     }
   }
 
-  function irASiguiente() {
-    navigate("/juegos");
+  function reiniciarJuego() {
+    setPuntaje(0);
+    setPreguntaActual(1);
+    setJuegoTerminado(false);
+    setMensaje("");
+    nuevaPregunta();
   }
 
   return (
     <div className="container text-center mt-5">
       <div className="card p-4 shadow" style={{ maxWidth: "400px", margin: "auto" }}>
-        <h3>
-          {tipo === "numero"
-            ? "¿Cómo se dice este número en inglés?"
-            : "¿Cómo se dice este día en inglés?"}
-        </h3>
+        {!juegoTerminado ? (
+          <>
+            <h4>Pregunta {preguntaActual} de {totalPreguntas}</h4>
+            <h3>
+              {tipo === "numero"
+                ? "¿Cómo se dice este número en inglés?"
+                : "¿Cómo se dice este día en inglés?"}
+            </h3>
 
-        <h1 className="py-3">{pregunta}</h1>
+            <h1 className="py-3">{pregunta}</h1>
 
-        {opciones.map((op) => (
-          <button
-            key={op}
-            className="btn btn-outline-primary m-2"
-            onClick={() => elegir(op)}
-            disabled={juegoTerminado} //desactivar los botones si terminó
-          >
-            {op}
-          </button>
-        ))}
+            {opciones.map((op) => (
+              <button
+                key={op}
+                className="btn btn-outline-primary m-2"
+                onClick={() => elegir(op)}
+              >
+                {op}
+              </button>
+            ))}
 
-        <p className="mt-3 fs-5">{mensaje}</p>
-        <p>Puntaje: {puntaje}</p>
-
-        {!juegoTerminado && (
-          <button className="btn btn-secondary mt-2" onClick={nuevaPregunta}>
-            Nueva pregunta
-          </button>
-        )}
-
-        {/*aparece solo cuando gana */}
-        {juegoTerminado && (
-          <div className="mt-3">
-            <button className="btn btn-success" onClick={irASiguiente}>
-              Volver al menu
+            <p className="mt-3 fs-5">{mensaje}</p>
+            <p>Puntaje: {puntaje}</p>
+          </>
+        ) : (
+          <>
+            <h2>🎉¡Juego Terminado!</h2>
+            <p className="fs-5">{mensaje}</p>
+            <p>Puntaje final: {puntaje} de {totalPreguntas}</p>
+            <button className="btn btn-success mt-3" onClick={reiniciarJuego}>
+              Jugar de nuevo
             </button>
-          </div>
+          </>
         )}
       </div>
     </div>
