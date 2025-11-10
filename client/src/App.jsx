@@ -41,15 +41,10 @@ function App() {
             <Route path="tercerJuego" element={<TercerJuego/>}/>
             <Route path="cuartoJuego" element={<CuartoJuego/>}/>
           </Route>
-
-          {/* Ruta protegida para admin */}
-          <Route element={<ProtectorRutas allowedRoles={["admin"]} />}>
             <Route path="/proyecto02" element={<Proyecto02 />} />
             <Route path="/proyecto03" element={<Proyecto03 />} />
             <Route path="/proyecto04" element={<Proyecto04 />} />
             <Route path="/proyecto05" element={<Proyecto05 />} />
-          </Route>
-
           <Route path="*" element={<Error />} />
         </Route>
       </Routes>

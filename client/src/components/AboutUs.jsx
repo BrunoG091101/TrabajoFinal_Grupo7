@@ -67,11 +67,12 @@ export default function AboutUs() {
                 <Card.Body>
                     <Card.Title>Mario Ezequiel Ibañez</Card.Title>
                     <Card.Text>
-                        {""}
+                        Estudiante de la Facultad de Ingenieria(UNJU) en la carrera 
+                        Tecnicatura en diseño Integral Video Juego{""}
                     </Card.Text>
                     <Button
                         variant="dark"
-                        href="https://github.com/usuarioGaspar"//Cambiar link
+                        href="https://github.com/IbanezMarioEzequiel"//Cambiar link
                         target="_blank"
                     >
                         <img
