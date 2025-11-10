@@ -50,7 +50,7 @@ function Ejercicio01_P04() {
                 />
             </div>
 
-            <div className="botonesValidar">
+            <div className="botonesValidarP04">
                 <button onClick={VerificarNumero}>
                     Ingresar número
                 </button>
