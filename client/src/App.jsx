@@ -5,6 +5,7 @@ import Juegos from "./page/Juegos";
 //Zona Juegos
 import JuegoEstrella from "./components/JuegoEstrella";
 import PrimerJuego from "./components/JuegosIngles/PrimerJuego/PrimerJuego"
+import SegundoJuego from "./components/JuegosIngles/SegundoJuego/SegundoJuego";
 import TercerJuego from "./components/JuegosIngles/TercerJuego/TercerJuego";
 //Fin zona Juego
 import Error from "./page/Error";
@@ -35,6 +36,7 @@ function App() {
             <Route index element={<Juegos />} />
             <Route path="juegoEstrella" element={<JuegoEstrella />} />
             <Route path="primerJuego/*" element={<PrimerJuego />} />
+            <Route path="segundoJuego" element={<SegundoJuego/>}/>
             <Route path="tercerJuego" element={<TercerJuego/>}/>
           </Route>
 
