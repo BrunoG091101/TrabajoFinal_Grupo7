@@ -2,7 +2,7 @@ import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 
 
-import imagenCordoba from "../assets/image/AboutUs/usuario.png";
+import imagenCordoba from "../assets/image/AboutUs/imagenCordoba.jpg";
 import imagenFlores from "../assets/image/AboutUs/usuario.png";
 import imagenIbañez from "../assets/image/AboutUs/usuario.png";
 import imagenGaspar from "../assets/image/AboutUs/imagenGaspar.jpg";
@@ -13,12 +13,12 @@ export default function AboutUs() {
         <div className="cartasAboutUs">
             <Card className="cartaCordoba" style={{ width: "24rem", margin: "auto" }}>
                 <div className="imgCordoba">
-                    <Card.Img variant="top" src={imagenCordoba} alt="imagenCordoba" />
+                    <Card.Img variant="top" src={imagenCordoba} alt="imagenCordoba" width="auto" height="auto"/>
                 </div>
                 <Card.Body>
-                    <Card.Title>Cordoba Agustina</Card.Title>
+                    <Card.Title>Cordoba Agustina Ayelen </Card.Title>
                     <Card.Text>
-                        {""}
+                    Estudiante  de primer año en la Tecnicatura Universitaria en Diseño Integral de Videojuegos.{""}
                     </Card.Text>
                     <Button
                         variant="dark"
