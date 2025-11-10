@@ -7,6 +7,7 @@ import JuegoEstrella from "./components/JuegoEstrella";
 import PrimerJuego from "./components/JuegosIngles/PrimerJuego/PrimerJuego"
 import SegundoJuego from "./components/JuegosIngles/SegundoJuego/SegundoJuego";
 import TercerJuego from "./components/JuegosIngles/TercerJuego/TercerJuego";
+import CuartoJuego from "./components/JuegosIngles/CuartoJuego/CuartoJuego"; 
 //Fin zona Juego
 import Error from "./page/Error";
 import { Container } from "react-bootstrap";
@@ -38,6 +39,7 @@ function App() {
             <Route path="primerJuego/*" element={<PrimerJuego />} />
             <Route path="segundoJuego" element={<SegundoJuego/>}/>
             <Route path="tercerJuego" element={<TercerJuego/>}/>
+            <Route path="cuartoJuego" element={<CuartoJuego/>}/>
           </Route>
 
           {/* Ruta protegida para admin */}
