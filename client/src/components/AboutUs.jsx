@@ -42,11 +42,12 @@ export default function AboutUs() {
                 <Card.Body>
                     <Card.Title>Flores Jose Fernando</Card.Title>
                     <Card.Text>
-                        {""}
+                        Estudiante de la tecnicatura Universitaria en diseño integral de videojuegos, 
+                        Mi objetivo es seguir creciendo en el ambito del diseño y desarrollo de videojuegos.
                     </Card.Text>
                     <Button
                         variant="dark"
-                        href="https://github.com/usuarioGaspar"//cambiar aqui el link para el perfil
+                        href="https://github.com/FerchuTM"//cambiar aqui el link para el perfil
                         target="_blank"
                     >
                         <img
