@@ -29,7 +29,7 @@ export const Login = () => {
   }
 
   return (
-    <Container className="mt-5">
+    <Container className="loginContainer">
       <Row className="justify-content-md-center">
         <Col md={6}>
           <h3 className="text-center mb-4">Iniciar Sesión</h3>

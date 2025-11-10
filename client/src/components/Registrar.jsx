@@ -104,10 +104,10 @@ function Registrarse() {
   const passwordInvalido = Object.values(errorPassword).some((error) => error);
 
   return (
-    <Container className="mt-5">
+    <Container className="registroContainer">
       <Row className="justify-content-center">
         <Col md={6}>
-          <h2 className="text-center mb-4">Formulario de Registro</h2>
+          <h2 className="textRegistro">Formulario de Registro</h2>
 
           {/* Mensajes */}
           {mensaje && (
@@ -161,7 +161,7 @@ function Registrarse() {
             </Form.Group>
 
             <Form.Group className="mb-3">
-              <Form.Label>Sexo</Form.Label>
+              <Form.Label>Genero</Form.Label>
               <Form.Select
                 name="sexo"
                 value={usuario.sexo}

@@ -37,16 +37,12 @@ function Layout() {
                   Juegos
                 </Nav.Link>
               )}
-
-              {/* Mostrar "Proyectos" solo si el rol es admin */}
-              {isAuthenticated && user?.rol === "admin" && (
                 <NavDropdown title="Proyectos" id="Proyectos-dropdown">
                   <NavDropdown.Item href="/proyecto02">Proyecto02</NavDropdown.Item>
                   <NavDropdown.Item href="/proyecto03">Proyecto03</NavDropdown.Item>
                   <NavDropdown.Item href="/proyecto04">Proyecto04</NavDropdown.Item>
                   <NavDropdown.Item href="/proyecto05">Proyecto05</NavDropdown.Item>  
                 </NavDropdown>
-              )}
             </Nav>
 
             {/* Menú de usuario */}
