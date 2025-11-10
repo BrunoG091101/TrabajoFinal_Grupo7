@@ -87,9 +87,10 @@ function Nivel03_J01({onNivelCompletado}) {
 
   return (
     <div style={{ textAlign: "center", marginTop: "2rem" }}>
-      <div>
-        {colores.map((c, i) => (
-          <Button
+      <div className="contBotonesN03_J01">
+        <div className="botonesColorN03_J01">
+          {colores.map((c, i) => (
+            <Button
             key={`color-${i}`}
             onClick={() => manejarClick(c, "color")}
             disabled={paresEncontrados.includes(c.nombre)}
@@ -103,14 +104,14 @@ function Nivel03_J01({onNivelCompletado}) {
               opacity: paresEncontrados.includes(c.nombre) ? 0.3 : 1,
               cursor: "pointer",
             }}
-          >
-          </Button>
-        ))}
-      </div>
+            >
+            </Button>
+          ))}
+        </div>
 
-      <div>
-        {textos.map((c, i) => (
-          <Button
+        <div className="botonesNombreN03_J01">
+          {textos.map((c, i) => (
+            <Button
             key={`texto-${i}`}
             onClick={() => manejarClick(c, "texto")}
             disabled={paresEncontrados.includes(c.nombre)}
@@ -124,10 +125,11 @@ function Nivel03_J01({onNivelCompletado}) {
               cursor: "pointer",
               opacity: paresEncontrados.includes(c.nombre) ? 0.3 : 1,
             }}
-          >
-            {c.nombre}
-          </Button>
-        ))}
+            >
+              {c.nombre}
+            </Button>
+          ))}
+        </div>
       </div>
 
       {mensaje && (

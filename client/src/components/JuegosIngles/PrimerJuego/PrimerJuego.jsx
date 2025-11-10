@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Button from 'react-bootstrap/Button';
+import '../../../assets/css/Juego01_Ingles.css'
 
 import Nivel01_J01 from "./Niveles/Nivel01_J01";
 import Nivel02_J01 from "./Niveles/Nivel02_J01";
@@ -89,7 +90,7 @@ const botonEstilo = (color) => ({
     color: "white",
     fontSize: "1rem",
     fontWeight: "bold",
-    cursor: "pointer",
+    cursor: "pointer"
 });
 
 export default PrimerJuego;
