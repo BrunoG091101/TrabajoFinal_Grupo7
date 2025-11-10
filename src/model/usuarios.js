@@ -14,7 +14,11 @@ const esquemaUsuario = new esquema({
   username:String,
   password:String,
   sexo:String,
-  edad:String
+  edad:String,
+  puntaje: {
+    type: Number,
+    default: 0,
+  }
   
 });
 

@@ -1,7 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect,useContext } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import axios from "axios";
 import Correcto from "../../../assets/sound/Correcto.mp3";
 import Incorrecto from "../../../assets/sound/incorecto.mp3";
+import AutorizacionContext from "../../../context/AutorizacionContext"; 
 
 export default function JuegoFacil() {
   const numerosIngles = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten"];
@@ -16,6 +18,7 @@ export default function JuegoFacil() {
   const [juegoTerminado, setJuegoTerminado] = useState(false);
   const [preguntaActual, setPreguntaActual] = useState(1);
   const totalPreguntas = 10;
+  const { user } = useContext(AutorizacionContext);
 
   function mezclar(lista) {
     return lista.sort(() => Math.random() - 0.5);
@@ -63,6 +66,33 @@ export default function JuegoFacil() {
     nuevaPregunta();
   }, []);
 
+  async function guardarPuntaje(puntajeFinal) {
+  try {
+    if (!user || !user.username) {
+      console.warn("No hay usuario logueado, no se guardará el puntaje.");
+      return;
+    }
+
+    // Obtener el puntaje actual del usuario
+    const res = await axios.get(`/api/obtenerusuario/${user.username}`);
+    const puntajeActual = res.data?.puntaje || 0;
+
+    // Sumar el nuevo puntaje
+    const nuevoTotal = puntajeActual + puntajeFinal;
+
+    // Actualizar el puntaje en la base de datos
+    await axios.put(`/api/actualizarPuntaje/${user.username}`, {
+      puntaje: nuevoTotal,
+    });
+
+    console.log(`✅ Puntaje acumulado: ${puntajeActual} + ${puntajeFinal} = ${nuevoTotal}`);
+  } catch (error) {
+    console.error("❌ Error al guardar el puntaje:", error);
+  }
+}
+
+
+
   function elegir(opcion) {
     if (juegoTerminado) return;
 
@@ -94,9 +124,11 @@ export default function JuegoFacil() {
       }, 1000);
     } else {
       // Terminar juego después de la última pregunta
-      setTimeout(() => {
+      setTimeout(async () => {
+        const puntajeFinal = puntaje + (correcto ? 1 : 0);
         setJuegoTerminado(true);
-        setMensaje(`Juego terminado. Tu puntaje final es ${puntaje + (correcto ? 1 : 0)} de ${totalPreguntas}.`);
+        setMensaje(`Juego terminado. Tu puntaje final es ${puntajeFinal} de ${totalPreguntas}.`);
+        await guardarPuntaje(puntajeFinal); //Guarda el puntaje en MongoDB
       }, 1000);
     }
   }
@@ -138,7 +170,7 @@ export default function JuegoFacil() {
           </>
         ) : (
           <>
-            <h2>🎉¡Juego Terminado!</h2>
+            <h2>🎉 ¡Juego Terminado!</h2>
             <p className="fs-5">{mensaje}</p>
             <p>Puntaje final: {puntaje} de {totalPreguntas}</p>
             <button className="btn btn-success mt-3" onClick={reiniciarJuego}>
