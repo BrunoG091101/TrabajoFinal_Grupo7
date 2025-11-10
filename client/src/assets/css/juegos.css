@@ -1,0 +1,31 @@
+.contPrincipalJuegos {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.contJuegosIngles {
+    border-style: solid;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    gap: 1rem;
+}
+
+.botonesJuegos {
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    padding: 1rem 16rem;
+    gap: 3rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.contJuegoExtra {
+    border-style: solid;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 27rem;
+    gap: 34px;
+}
