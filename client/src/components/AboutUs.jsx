@@ -4,7 +4,7 @@ import Button from "react-bootstrap/Button";
 
 import imagenCordoba from "../assets/image/AboutUs/imagenCordoba.jpg";
 import imagenFlores from "../assets/image/AboutUs/usuario.png";
-import imagenIbañez from "../assets/image/AboutUs/usuario.png";
+import imagenIbañez from "../assets/image/AboutUs/Eze.jpg";
 import imagenGaspar from "../assets/image/AboutUs/imagenGaspar.jpg";
 import logogit from "../assets/image/AboutUs/logoGithub.png";
 
@@ -68,7 +68,7 @@ export default function AboutUs() {
                     <Card.Title>Mario Ezequiel Ibañez</Card.Title>
                     <Card.Text>
                         Estudiante de la Facultad de Ingenieria(UNJU) en la carrera 
-                        Tecnicatura en diseño Integral Video Juego{""}
+                        Tecnicatura en diseño Integral Video Juego {""}
                     </Card.Text>
                     <Button
                         variant="dark"
