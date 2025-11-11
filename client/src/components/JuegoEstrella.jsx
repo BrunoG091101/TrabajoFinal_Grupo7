@@ -1,6 +1,11 @@
 import { useState, useEffect } from "react";
 import { Image, Button } from "react-bootstrap";
 import estrella2 from "../assets/image/estrella2.png";
+
+//  Sonidos
+import sonidoClick from "../assets/sound/boton.mp3";
+import sonidoGanar from "../assets/sound/Correcto.mp3";
+
 function JuegoEstrella() {
   const [puntaje, setPuntaje] = useState(0);
   const [mensaje, setMensaje] = useState("");
@@ -8,15 +13,17 @@ function JuegoEstrella() {
   const [isVisible, setIsVisible] = useState(true);
   const [juegoTerminado, setJuegoTerminado] = useState(false);
 
+  //  Inicializar objetos de audio
+  const audioClick = new Audio(sonidoClick);
+  const audioGanar = new Audio(sonidoGanar);
+
   function generarPosicion() {
     const anchoContenedor = 900;
     const altoContenedor = 300;
     const anchoBoton = 80;
     const altoBoton = 40;
 
-    const posicionX = Math.floor(
-      Math.random() * (anchoContenedor - anchoBoton)
-    );
+    const posicionX = Math.floor(Math.random() * (anchoContenedor - anchoBoton));
     const posicionY = Math.floor(Math.random() * (altoContenedor - altoBoton));
 
     setPosicionEstrella({ x: posicionX, y: posicionY });
@@ -25,6 +32,7 @@ function JuegoEstrella() {
   function atraparEstrella() {
     if (juegoTerminado) return;
 
+    audioClick.play(); //  Sonido al hacer clic
     setPuntaje((prev) => prev + 1);
     setIsVisible(false);
 
@@ -38,6 +46,7 @@ function JuegoEstrella() {
 
   useEffect(() => {
     if (puntaje >= 10) {
+      audioGanar.play(); //  Sonido al ganar
       setMensaje("¡Ganaste!");
       setJuegoTerminado(true);
       setIsVisible(false);
@@ -62,7 +71,7 @@ function JuegoEstrella() {
   }
 
   return (
-    <div className="ContenedorJuego">
+    <div className="ContenedorJuego" style={{ position: "relative", height: "400px" }}>
       <div className="contenedorBoton">
         {isVisible && (
           <button
@@ -72,26 +81,30 @@ function JuegoEstrella() {
               position: "absolute",
               left: `${posicionEstrella.x}px`,
               top: `${posicionEstrella.y}px`,
+              background: "transparent",
+              border: "none",
+              cursor: "pointer"
             }}
           >
             <Image src={estrella2} width="60" height="30" />
           </button>
         )}
       </div>
-      <div className="mensaje">
-        <div>
-          <h1>{mensaje}</h1>
-          <h2>{puntaje}</h2>
-        </div>
+
+      <div className="mensaje" style={{ textAlign: "center", marginTop: "20px" }}>
+        <h1>{mensaje}</h1>
+        <h2>{puntaje}</h2>
       </div>
-      <div className="botonReinicio">
-          {juegoTerminado && (
-            <Button variant="success" onClick={reiniciarJuego}>
-              Reiniciar Juego
-            </Button>
-          )}
-        </div>
+
+      <div className="botonReinicio" style={{ textAlign: "center", marginTop: "10px" }}>
+        {juegoTerminado && (
+          <Button variant="success" onClick={reiniciarJuego}>
+            Reiniciar Juego
+          </Button>
+        )}
+      </div>
     </div>
   );
 }
+
 export default JuegoEstrella;

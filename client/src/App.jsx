@@ -8,20 +8,9 @@ import Juegos from "./page/Juegos";
 //Zona Juegos
 import JuegoEstrella from "./components/JuegoEstrella";
 import PrimerJuego from "./components/JuegosIngles/PrimerJuego/PrimerJuego"
-<<<<<<< Updated upstream
-=======
 import SegundoJuego from "./components/JuegosIngles/SegundoJuego/SegundoJuego";
 import TercerJuego from "./components/JuegosIngles/TercerJuego/TercerJuego";
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
+import CuartoJuego from "./components/JuegosIngles/CuartoJuego/CuartoJuego"; 
 //Fin zona Juego
 import Error from "./page/Error";
 import { Container } from "react-bootstrap";
@@ -34,60 +23,31 @@ import Proyecto05 from "./page/Proyecto05";
 //fin zona proyectos
 import Login from "./components/Login";
 import ProtectorRutas from "./components/ProtectorRutas";
+import Registro from "./page/Registro";
 function App() {
   return (
     <Container>
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Login />} />
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-          <Route path="/aboutUs" element={<About />} />
-=======
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
           <Route path="/aboutUs" element={<About />}>
             <Route path="proyecto01" element={<Proyecto01 />} />
           </Route>
           <Route path="/registrar" element={<Registro/>}/>
->>>>>>> Stashed changes
 
-          {/* Ruta protegida para ALUMNO */}
-          <Route path="/juegos" element={<ProtectorRutas allowedRoles={["ALUMNO", "ADMINISTRATIVO"]} />}>
+          {/* Ruta protegida para alumno */}
+          <Route path="/juegos" element={<ProtectorRutas allowedRoles={["alumno", "admin"]} />}>
             <Route index element={<Juegos />} />
             <Route path="juegoEstrella" element={<JuegoEstrella />} />
             <Route path="primerJuego/*" element={<PrimerJuego />} />
-<<<<<<< Updated upstream
-          </Route>
-
-          {/* Ruta protegida para ADMINISTRATIVO */}
-          <Route element={<ProtectorRutas allowedRoles={["ADMINISTRATIVO"]} />}>
-=======
             <Route path="segundoJuego" element={<SegundoJuego/>}/>
             <Route path="tercerJuego" element={<TercerJuego/>}/>
-          </Route>          
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
+            <Route path="cuartoJuego" element={<CuartoJuego/>}/>
+          </Route>
             <Route path="/proyecto02" element={<Proyecto02 />} />
             <Route path="/proyecto03" element={<Proyecto03 />} />
             <Route path="/proyecto04" element={<Proyecto04 />} />
             <Route path="/proyecto05" element={<Proyecto05 />} />
-          </Route>
-
           <Route path="*" element={<Error />} />
         </Route>
       </Routes>
