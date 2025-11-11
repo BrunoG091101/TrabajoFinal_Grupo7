@@ -1,7 +1,8 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import axios from "axios";
+import AutorizacionContext from "../../../context/AutorizacionContext";
 
-//  Importamos las imágenes de los animales
 import chickenImg from "../../../assets/image/Juego2/Chicken.jpg";
 import cowImg from "../../../assets/image/Juego2/Cow.jpg";
 import duckImg from "../../../assets/image/Juego2/Duck.jpg";
@@ -9,11 +10,12 @@ import horseImg from "../../../assets/image/Juego2/Horse.jpg";
 import pigImg from "../../../assets/image/Juego2/Pig.jpg";
 import rabbitImg from "../../../assets/image/Juego2/Rabbit.jpg";
 
-// Importamos los sonidos
 import Correcto from "../../../assets/sound/Correcto.mp3";
 import Incorrecto from "../../../assets/sound/incorecto.mp3";
 
 export default function SegundoJuego() {
+  const { user } = useContext(AutorizacionContext);
+
   const animals = [
     { name: "Chicken", image: chickenImg },
     { name: "Cow", image: cowImg },
@@ -24,7 +26,6 @@ export default function SegundoJuego() {
   ];
 
   const totalPreguntas = 10;
-
   const [animalActual, setAnimalActual] = useState(null);
   const [opciones, setOpciones] = useState([]);
   const [mensaje, setMensaje] = useState("");
@@ -32,9 +33,8 @@ export default function SegundoJuego() {
   const [preguntaActual, setPreguntaActual] = useState(1);
   const [juegoTerminado, setJuegoTerminado] = useState(false);
 
-  // sonidos
   const sonidoCorrecto = new Audio(Correcto);
-  const sonidoIncorecto = new Audio(Incorrecto);
+  const sonidoIncorrecto = new Audio(Incorrecto);
 
   function mezclar(lista) {
     return [...lista].sort(() => Math.random() - 0.5);
@@ -48,7 +48,6 @@ export default function SegundoJuego() {
       .slice(0, 2);
 
     const opcionesMezcladas = mezclar([...otras, correcto]);
-
     setAnimalActual(correcto);
     setOpciones(opcionesMezcladas);
     setMensaje("");
@@ -57,6 +56,32 @@ export default function SegundoJuego() {
   useEffect(() => {
     nuevaRonda();
   }, []);
+
+  // ✅ Guarda puntaje acumulativo
+  async function guardarPuntaje(puntajeFinal) {
+    try {
+      if (!user || !user.username) {
+        console.warn("⚠ No hay usuario logueado, no se guardará el puntaje.");
+        return;
+      }
+
+      // ✅ Obtener el puntaje actual del usuario
+      const res = await axios.get(`/api/obtenerusuario/${user.username}`);
+      const puntajeActual = res.data?.puntaje || 0;
+
+      // ✅ Sumar el nuevo puntaje
+      const nuevoTotal = puntajeActual + puntajeFinal;
+
+      // ✅ Actualizar el puntaje en la base de datos
+      await axios.put(`/api/actualizarPuntaje/${user.username}`, {
+        puntaje: nuevoTotal,
+      });
+
+      console.log(`✅ Puntaje acumulado: ${puntajeActual} + ${puntajeFinal} = ${nuevoTotal}`);
+    } catch (error) {
+      console.error("❌ Error al guardar el puntaje:", error);
+    }
+  }
 
   function elegir(nombre) {
     if (juegoTerminado) return;
@@ -68,19 +93,19 @@ export default function SegundoJuego() {
       setMensaje("✅ ¡Correcto!");
       setPuntaje(nuevoPuntaje);
     } else {
-      sonidoIncorecto.play();
+      sonidoIncorrecto.play();
       setMensaje("❌ Incorrecto.");
     }
 
-    // Avanza a la siguiente pregunta
     if (preguntaActual < totalPreguntas) {
       setTimeout(() => {
-        setPreguntaActual(preguntaActual + 1);
+        setPreguntaActual((prev) => prev + 1);
         nuevaRonda();
       }, 1000);
     } else {
-      setTimeout(() => {
+      setTimeout(async () => {
         setJuegoTerminado(true);
+        await guardarPuntaje(nuevoPuntaje); // Guarda el puntaje al finalizar
       }, 1000);
     }
   }
@@ -99,7 +124,9 @@ export default function SegundoJuego() {
 
         {!juegoTerminado ? (
           <>
-            <p className="mt-2">Pregunta {preguntaActual} de {totalPreguntas}</p>
+            <p className="mt-2">
+              Pregunta {preguntaActual} de {totalPreguntas}
+            </p>
 
             {animalActual && (
               <img
@@ -127,10 +154,12 @@ export default function SegundoJuego() {
           </>
         ) : (
           <div className="mt-3">
-            <h3 className="text-success">Juego terminado🎉</h3>
-            <p className="fs-4">Tu puntaje final: {puntaje} / {totalPreguntas}</p>
+            <h3 className="text-success">Juego terminado 🎉</h3>
+            <p className="fs-4">
+              Tu puntaje final: {puntaje} / {totalPreguntas}
+            </p>
             <button className="btn btn-success mt-3" onClick={reiniciarJuego}>
-               Jugar de nuevo
+              Jugar de nuevo
             </button>
           </div>
         )}
