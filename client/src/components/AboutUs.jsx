@@ -4,9 +4,12 @@ import Button from "react-bootstrap/Button";
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 
 import imagenCordoba from "../assets/image/AboutUs/usuario.png";
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 import imagenCordoba from "../assets/image/AboutUs/imagenCordoba.jpg";
@@ -20,6 +23,7 @@ export default function AboutUs() {
     const navigate = useNavigate();
 
     return (
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
         <div className="cartasAboutUs">
@@ -124,6 +128,21 @@ export default function AboutUs() {
                         <Button
                             variant="dark"
                             href="https://github.com/AgustinaAyelenCordoba"
+=======
+        <div className="contAboutUs">
+            <div className="cartasAboutUs">
+                <Card className="cartaCordoba" style={{ width: "24rem", margin: "auto" }}>
+                    <div className="imgCordoba">
+                        <Card.Img variant="top" src={imagenCordoba} alt="imagenCordoba" width="auto" height="auto"/>
+                    </div>
+                    <Card.Body>
+                        <Card.Title>Cordoba Agustina Ayelen </Card.Title>
+                        <Card.Text>
+                        Estudiante  de primer año en la Tecnicatura Universitaria en Diseño Integral de Videojuegos.{""}
+                        </Card.Text>
+                        <Button
+                            variant="dark"
+                            href="https://github.com/AgustinaAyelenCordoba"
                             target="_blank"
                         >
                             <img
@@ -136,6 +155,58 @@ export default function AboutUs() {
                     </Card.Body>
                 </Card>
 
+                <Card className="cartaFlores" style={{ width: "24rem", margin: "auto" }}>
+                    <div className="imgFlores">
+                        <Card.Img variant="top" src={imagenFlores} alt="imagenFlores" />
+                    </div>
+                    <Card.Body>
+                        <Card.Title>Flores Jose Fernando</Card.Title>
+                        <Card.Text>
+                            Estudiante de la tecnicatura Universitaria en diseño integral de videojuegos, 
+                            Mi objetivo es seguir creciendo en el ambito del diseño y desarrollo de videojuegos.
+                        </Card.Text>
+                        <Button
+                            variant="dark"
+                            href="https://github.com/FerchuTM"//cambiar aqui el link para el perfil
+                            target="_blank"
+                        >
+                            <img
+                                src={logogit}
+                                alt="GitHub"
+                                style={{ width: "20px", height: "20px" }}
+                            />
+                            GitHub
+                        </Button>
+                    </Card.Body>
+                </Card>
+
+                <Card className="cartaIbañez" style={{ width: "24rem", margin: "auto" }}>
+                    <div className="imgIbañez">
+                        <Card.Img variant="top" src={imagenIbañez} alt="imagenIbañez" />
+                    </div>
+                    <Card.Body>
+                        <Card.Title>Mario Ezequiel Ibañez</Card.Title>
+                        <Card.Text>
+                            Estudiante de la Facultad de Ingenieria(UNJU) en la carrera 
+                            Tecnicatura en diseño Integral Video Juego{""}
+                        </Card.Text>
+                        <Button
+                            variant="dark"
+                            href="https://github.com/IbanezMarioEzequiel"//Cambiar link
+>>>>>>> Stashed changes
+                            target="_blank"
+                        >
+                            <img
+                                src={logogit}
+                                alt="GitHub"
+                                style={{ width: "20px", height: "20px" }}
+                            />
+                            GitHub
+                        </Button>
+                    </Card.Body>
+                </Card>
+
+<<<<<<< Updated upstream
                 <Card className="cartaFlores" style={{ width: "24rem", margin: "auto" }}>
                     <div className="imgFlores">
                         <Card.Img variant="top" src={imagenFlores} alt="imagenFlores" />
@@ -239,6 +310,8 @@ export default function AboutUs() {
                 </Card>
 >>>>>>> Stashed changes
 
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
                 <Card className="cartaGaspar" style={{ width: "24rem", margin: "auto" }}>
