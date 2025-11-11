@@ -33,6 +33,8 @@ export default function BodyPartsGame() {
   const [errores, setErrores] = useState(0);
   const [mensaje, setMensaje] = useState('');
   const [colorMensaje, setColorMensaje] = useState('');
+  const [intentos, setIntentos] = useState(0);
+  const [juegoTerminado, setJuegoTerminado] = useState(false);
 
   // Cargar sonidos
   const audioCorrecto = new Audio(sonidoCorrecto);
@@ -49,14 +51,18 @@ export default function BodyPartsGame() {
   };
 
   const nuevaPalabra = () => {
+    if (aciertos >= 5) return;
     setRespuesta('');
     setMensaje('');
+    setIntentos(0);
     setPalabraActual(elegirPalabra());
   };
 
   const limpiarTexto = (texto) => texto.trim().toLowerCase();
 
   const comprobar = () => {
+    if (juegoTerminado) return;
+
     const respuestaUsuario = limpiarTexto(respuesta);
     if (!respuestaUsuario) {
       setMensaje('Escribe algo antes de comprobar.');
@@ -67,21 +73,39 @@ export default function BodyPartsGame() {
     const respuestasCorrectas = palabras[palabraActual];
     if (respuestasCorrectas.includes(respuestaUsuario)) {
       audioCorrecto.play();
+      const nuevosAciertos = aciertos + 1;
       setPuntos(puntos + 10);
-      setAciertos(aciertos + 1);
+      setAciertos(nuevosAciertos);
       setMensaje('¡Correcto!  +10 puntos');
       setColorMensaje('text-success');
-      setTimeout(() => nuevaPalabra(), 1000);
+
+      if (nuevosAciertos >= 5) {
+        setMensaje('¡Ganaste el juego!');
+        setJuegoTerminado(true);
+      } else {
+        setTimeout(() => nuevaPalabra(), 1000);
+      }
     } else {
+      const nuevoIntento = intentos + 1;
+      setIntentos(nuevoIntento);
       audioIncorrecto.play();
       setErrores(errores + 1);
       setPuntos(Math.max(0, puntos - 3));
-      setMensaje(' Incorrecto. Intenta de nuevo o muestra la respuesta.');
-      setColorMensaje('text-danger');
+
+      if (nuevoIntento >= 5) {
+        const respuestasCorrectas = palabras[palabraActual];
+        setMensaje(`Has alcanzado el límite de intentos. Respuesta: ${respuestasCorrectas.join(', ')}`);
+        setColorMensaje('text-secondary');
+        setTimeout(() => nuevaPalabra(), 2000);
+      } else {
+        setMensaje(`Incorrecto. Intento ${nuevoIntento} de 5.`);
+        setColorMensaje('text-danger');
+      }
     }
   };
 
   const mostrarRespuesta = () => {
+    if (juegoTerminado) return;
     audioRendirse.play();
     const respuestasCorrectas = palabras[palabraActual];
     setMensaje('💡 Respuesta(s): ' + respuestasCorrectas.join(', '));
@@ -93,6 +117,7 @@ export default function BodyPartsGame() {
       setPuntos(0);
       setAciertos(0);
       setErrores(0);
+      setJuegoTerminado(false);
       nuevaPalabra();
     }
   };
@@ -127,7 +152,7 @@ export default function BodyPartsGame() {
 
         <div className="row g-3 align-items-center">
           <div className="col-md-4 text-center">
-            {rutaImagen && (
+            {rutaImagen && !juegoTerminado && (
               <img
                 src={rutaImagen}
                 alt={palabraActual}
@@ -143,52 +168,56 @@ export default function BodyPartsGame() {
               />
             )}
             <div className="mt-3">
-              <span className="badge bg-info text-dark me-1"> Puntos: {puntos}</span>
-              <span className="badge bg-success me-1"> Aciertos: {aciertos}</span>
-              <span className="badge bg-danger"> Errores: {errores}</span>
+              <span className="badge bg-info text-dark me-1">Puntos: {puntos}</span>
+              <span className="badge bg-success me-1">Aciertos: {aciertos}</span>
+              <span className="badge bg-danger">Errores: {errores}</span>
             </div>
           </div>
 
           <div className="col-md-8 text-center text-md-start">
-            <input
-              type="text"
-              className="form-control mb-2 text-center"
-              style={{
-                border: '2px solid #06d6a0',
-                borderRadius: '15px',
-                fontSize: '1.1rem'
-              }}
-              placeholder=" Respuesta"
-              value={respuesta}
-              onChange={(e) => setRespuesta(e.target.value)}
-              onKeyDown={(e) => e.key === 'Enter' && comprobar()}
-            />
+            {!juegoTerminado && (
+              <input
+                type="text"
+                className="form-control mb-2 text-center"
+                style={{
+                  border: '2px solid #06d6a0',
+                  borderRadius: '15px',
+                  fontSize: '1.1rem'
+                }}
+                placeholder="Respuesta"
+                value={respuesta}
+                onChange={(e) => setRespuesta(e.target.value)}
+                onKeyDown={(e) => e.key === 'Enter' && comprobar()}
+              />
+            )}
 
             <div className={`fw-bold ${colorMensaje}`}>{mensaje}</div>
 
-            <div className="d-flex flex-wrap gap-2 mt-3 justify-content-center justify-content-md-start">
-              <button
-                className="btn"
-                onClick={comprobar}
-                style={{ backgroundColor: '#06d6a0', color: 'white', borderRadius: '15px' }}
-              >
-                 Comprobar
-              </button>
-              <button
-                className="btn"
-                onClick={nuevaPalabra}
-                style={{ backgroundColor: '#118ab2', color: 'white', borderRadius: '15px' }}
-              >
-                 Siguiente imagen
-              </button>
-              <button
-                className="btn"
-                onClick={mostrarRespuesta}
-                style={{ backgroundColor: '#ffd166', color: '#333', borderRadius: '15px' }}
-              >
-                 Rendirse
-              </button>
-            </div>
+            {!juegoTerminado && (
+              <div className="d-flex flex-wrap gap-2 mt-3 justify-content-center justify-content-md-start">
+                <button
+                  className="btn"
+                  onClick={comprobar}
+                  style={{ backgroundColor: '#06d6a0', color: 'white', borderRadius: '15px' }}
+                >
+                  Comprobar
+                </button>
+                <button
+                  className="btn"
+                  onClick={nuevaPalabra}
+                  style={{ backgroundColor: '#118ab2', color: 'white', borderRadius: '15px' }}
+                >
+                  Siguiente imagen
+                </button>
+                <button
+                  className="btn"
+                  onClick={mostrarRespuesta}
+                  style={{ backgroundColor: '#ffd166', color: '#333', borderRadius: '15px' }}
+                >
+                  Rendirse
+                </button>
+              </div>
+            )}
           </div>
         </div>
 
@@ -201,7 +230,7 @@ export default function BodyPartsGame() {
             style={{ borderRadius: '15px' }}
             onClick={reiniciar}
           >
-             Reiniciar
+            Reiniciar
           </button>
         </div>
       </div>
