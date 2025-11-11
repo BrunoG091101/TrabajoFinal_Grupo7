@@ -4,7 +4,7 @@ import Button from "react-bootstrap/Button";
 
 import imagenCordoba from "../assets/image/AboutUs/imagenCordoba.jpg";
 import imagenFlores from "../assets/image/AboutUs/usuario.png";
-import imagenIbañez from "../assets/image/AboutUs/usuario.png";
+import imagenIbañez from "../assets/image/AboutUs/Eze.jpg";
 import imagenGaspar from "../assets/image/AboutUs/imagenGaspar.jpg";
 import logogit from "../assets/image/AboutUs/logoGithub.png";
 
@@ -63,30 +63,30 @@ export default function AboutUs() {
                     </Card.Body>
                 </Card>
 
-                <Card className="cartaIbañez" style={{ width: "24rem", margin: "auto" }}>
-                    <div className="imgIbañez">
-                        <Card.Img variant="top" src={imagenIbañez} alt="imagenIbañez" />
-                    </div>
-                    <Card.Body>
-                        <Card.Title>Mario Ezequiel Ibañez</Card.Title>
-                        <Card.Text>
-                            Estudiante de la Facultad de Ingenieria(UNJU) en la carrera 
-                            Tecnicatura en diseño Integral Video Juego{""}
-                        </Card.Text>
-                        <Button
-                            variant="dark"
-                            href="https://github.com/IbanezMarioEzequiel"//Cambiar link
-                            target="_blank"
-                        >
-                            <img
-                                src={logogit}
-                                alt="GitHub"
-                                style={{ width: "20px", height: "20px" }}
-                            />
-                            GitHub
-                        </Button>
-                    </Card.Body>
-                </Card>
+            <Card className="cartaIbañez" style={{ width: "24rem", margin: "auto" }}>
+                <div className="imgIbañez">
+                    <Card.Img variant="top" src={imagenIbañez} alt="imagenIbañez" />
+                </div>
+                <Card.Body>
+                    <Card.Title>Mario Ezequiel Ibañez</Card.Title>
+                    <Card.Text>
+                        Estudiante de la Facultad de Ingenieria(UNJU) en la carrera 
+                        Tecnicatura en diseño Integral Video Juego {""}
+                    </Card.Text>
+                    <Button
+                        variant="dark"
+                        href="https://github.com/IbanezMarioEzequiel"//Cambiar link
+                        target="_blank"
+                    >
+                        <img
+                            src={logogit}
+                            alt="GitHub"
+                            style={{ width: "20px", height: "20px" }}
+                        />
+                        GitHub
+                    </Button>
+                </Card.Body>
+            </Card>
 
                 <Card className="cartaGaspar" style={{ width: "24rem", margin: "auto" }}>
                     <div className="imgGaspar">
