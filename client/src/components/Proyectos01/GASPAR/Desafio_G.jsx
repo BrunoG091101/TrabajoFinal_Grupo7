@@ -1,5 +1,3 @@
-import '../../../assets/css/P01_GASPAR.css'
-
 function Desafio_G(){
     return(
         <div class="contenedorP01_G des">

@@ -1,4 +1,3 @@
-import '../../../assets/css/P01_GASPAR.css'
 import logoP01_G from "../../../assets/image/Proy01_GASPAR/logoP01_G.jpg";
 import microP01_G from "../../../assets/image/Proy01_GASPAR/microP01_G.jpg";
 import ramP01_G from "../../../assets/image/Proy01_GASPAR/ramP01_G.jpeg";
