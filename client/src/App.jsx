@@ -12,6 +12,9 @@ import PrimerJuego from "./components/JuegosIngles/PrimerJuego/PrimerJuego"
 =======
 import SegundoJuego from "./components/JuegosIngles/SegundoJuego/SegundoJuego";
 import TercerJuego from "./components/JuegosIngles/TercerJuego/TercerJuego";
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 //Fin zona Juego
 import Error from "./page/Error";
@@ -32,8 +35,11 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<Login />} />
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
           <Route path="/aboutUs" element={<About />} />
 =======
+=======
+>>>>>>> Stashed changes
           <Route path="/aboutUs" element={<About />}>
             <Route path="proyecto01" element={<Proyecto01 />} />
           </Route>
@@ -54,6 +60,9 @@ function App() {
             <Route path="segundoJuego" element={<SegundoJuego/>}/>
             <Route path="tercerJuego" element={<TercerJuego/>}/>
           </Route>          
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
             <Route path="/proyecto02" element={<Proyecto02 />} />
             <Route path="/proyecto03" element={<Proyecto03 />} />
