@@ -3,7 +3,7 @@ import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 
 import imagenCordoba from "../assets/image/AboutUs/imagenCordoba.jpg";
-import imagenFlores from "../assets/image/AboutUs/usuario.png";
+import imagenFlores from "../assets/image/AboutUs/fer.jpg";
 import imagenIbañez from "../assets/image/AboutUs/Eze.jpg";
 import imagenGaspar from "../assets/image/AboutUs/imagenGaspar.jpg";
 import logogit from "../assets/image/AboutUs/logoGithub.png";

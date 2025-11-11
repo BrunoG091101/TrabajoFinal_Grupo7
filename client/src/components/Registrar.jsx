@@ -25,6 +25,9 @@ function Registrarse() {
     number: false,
   });
 
+  // 👇 nuevo estado para mostrar validación solo cuando se empieza a escribir
+  const [mostrandoValidacion, setMostrandoValidacion] = useState(false);
+
   const [usuario, setUsuario] = useState({
     nombre: "",
     apellido: "",
@@ -35,7 +38,7 @@ function Registrarse() {
     rol: "alumno",
     username: "",
     password: "",
-    motivo:"",
+    motivo: "",
   });
 
   const [mostrarNivel, setMostrarNivel] = useState(false);
@@ -50,7 +53,11 @@ function Registrarse() {
       [name]: value,
     }));
 
+    // ✅ Mostrar validación solo si el usuario empezó a escribir
     if (name === "password") {
+      if (value.length > 0) setMostrandoValidacion(true);
+      else setMostrandoValidacion(false);
+
       setErrorPassword({
         minLength: !PASSWORD_REGX.minLength.test(value),
         uppercase: !PASSWORD_REGX.uppercase.test(value),
@@ -100,7 +107,7 @@ function Registrarse() {
       });
 
       if (response.data.success) {
-        setMensaje(" Nivel de inglés y motivación guardados con éxito");
+        setMensaje("Nivel de inglés y motivación guardados con éxito ✅");
         setMostrarNivel(false);
 
         // Redirigir al Home luego de 2 segundos
@@ -204,6 +211,7 @@ function Registrarse() {
                 />
               </Form.Group>
 
+              {/* ✅ Contraseña con validación visible solo al escribir */}
               <Form.Group className="mb-3">
                 <Form.Label>Contraseña</Form.Label>
                 <Form.Control
@@ -214,16 +222,30 @@ function Registrarse() {
                   required
                   isInvalid={passwordInvalido}
                 />
-                <Form.Text className="text-muted">
-                  La contraseña debe tener al menos 8 caracteres, una mayúscula,
-                  una minúscula y un número.
-                </Form.Text>
-                {Object.entries(errorPassword).map(([key, error]) =>
-                  error ? (
-                    <div key={key} className="text-danger">
-                      ❌ {key} inválido
+
+                {mostrandoValidacion && (
+                  <div className="mt-2">
+                    <div className={errorPassword.minLength ? "text-danger" : "text-success"}>
+                      {errorPassword.minLength
+                        ? "❌ Mínimo 8 caracteres"
+                        : "✅ Tiene 8 caracteres"}
                     </div>
-                  ) : null
+                    <div className={errorPassword.uppercase ? "text-danger" : "text-success"}>
+                      {errorPassword.uppercase
+                        ? "❌ Falta una mayúscula"
+                        : "✅ Tiene una mayúscula"}
+                    </div>
+                    <div className={errorPassword.lowercase ? "text-danger" : "text-success"}>
+                      {errorPassword.lowercase
+                        ? "❌ Falta una minúscula"
+                        : "✅ Tiene una minúscula"}
+                    </div>
+                    <div className={errorPassword.number ? "text-danger" : "text-success"}>
+                      {errorPassword.number
+                        ? "❌ Falta un número"
+                        : "✅ Tiene un número"}
+                    </div>
+                  </div>
                 )}
               </Form.Group>
 
