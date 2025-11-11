@@ -14,6 +14,9 @@ import SegundoJuego from "./components/JuegosIngles/SegundoJuego/SegundoJuego";
 import TercerJuego from "./components/JuegosIngles/TercerJuego/TercerJuego";
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -40,8 +43,11 @@ function App() {
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
           <Route path="/aboutUs" element={<About />} />
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 =======
@@ -68,6 +74,9 @@ function App() {
           </Route>          
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
