@@ -20,13 +20,25 @@ export const Login = () => {
   };
 
   if (isAuthenticated) {
-    return (
-      <Container className="mt-5 text-center">
-        <h3> Bienvenido {user?.nombre || user?.username}!</h3>
-        <p>   Ya has iniciado sesión correctamente.</p>
-      </Container>
-    );
-  }
+  return (
+    <Container className="mt-5 text-center">
+      <h3>Bienvenido {user?.nombre || user?.username}!</h3>
+      <h4>
+        ¡Bienvenidos a nuestra página!<br /><br />
+        Somos un grupo de estudiantes de la Facultad de Ingeniería que se unieron para crear una plataforma que te ayude a practicar, aprender y mejorar tus habilidades mediante juegos.<br /><br />
+        <strong>Objetivo:</strong><br />
+        Nuestro objetivo es fomentar el aprendizaje del idioma inglés de manera divertida y accesible.<br /><br />
+        <strong>¿Qué ofrecemos?</strong><br />
+        - Juegos de colores<br />
+        - Adivina el nombre del animal<br />
+        - Días de la semana y números del 1 al 10<br />
+        - Partes del cuerpo humano<br /><br />
+        ¡Diviértete mientras practicas tu inglés!
+      </h4>
+    </Container>
+  );
+}
+
 
   return (
     <Container className="loginContainer">
