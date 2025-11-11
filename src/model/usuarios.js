@@ -18,7 +18,9 @@ const esquemaUsuario = new esquema({
   puntaje: {
     type: Number,
     default: 0,
-  }
+  },
+  motivo:String,
+  nivelIngles:String
   
 });
 

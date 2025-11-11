@@ -61,5 +61,27 @@ routes.put('/actualizarPuntaje/:username', async (req, res) => {
   }
 });
 
+routes.post('/guardarNivelIngles', async (req, res) => {
+  try {
+    const { username, motivo, nivelIngles } = req.body;
+    const usuario = await usuarioModel.findOne({ username });
+
+    if (!usuario) {
+      return res.status(404).json({ success: false, message: "Usuario no encontrado" });
+    }
+
+    usuario.motivo = motivo;
+    usuario.nivelIngles = nivelIngles;
+
+    await usuario.save();
+
+    res.json({ success: true, message: "Datos adicionales guardados" });
+  } catch (error) {
+    console.error("Error al guardar datos adicionales:", error);
+    res.status(500).json({ success: false, message: "Error del servidor" });
+  }
+});
+
+
 
 module.exports = routes;
