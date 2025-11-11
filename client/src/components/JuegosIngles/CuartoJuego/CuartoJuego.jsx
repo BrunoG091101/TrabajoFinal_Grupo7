@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-// 🔹 Imágenes
+//  Imágenes
 import cabeza from '../../../assets/image/Juego4/cabeza.png';
 import ojo from '../../../assets/image/Juego4/ojo.png';
 import mano from '../../../assets/image/Juego4/mano.png';
 import pies from '../../../assets/image/Juego4/pie.png';
 import naris from '../../../assets/image/Juego4/nariz.png';
 
-// 🔹 Sonidos
+//  Sonidos
 import sonidoCorrecto from '../../../assets/sound/Correcto.mp3';
 import sonidoIncorrecto from '../../../assets/sound/error.mp3';
 import sonidoRendirse from '../../../assets/sound/error.mp3';
@@ -34,7 +34,7 @@ export default function BodyPartsGame() {
   const [mensaje, setMensaje] = useState('');
   const [colorMensaje, setColorMensaje] = useState('');
 
-  // 🎵 Cargar sonidos
+  // Cargar sonidos
   const audioCorrecto = new Audio(sonidoCorrecto);
   const audioIncorrecto = new Audio(sonidoIncorrecto);
   const audioRendirse = new Audio(sonidoRendirse);
@@ -69,14 +69,14 @@ export default function BodyPartsGame() {
       audioCorrecto.play();
       setPuntos(puntos + 10);
       setAciertos(aciertos + 1);
-      setMensaje('¡Correcto! 🎉 +10 puntos');
+      setMensaje('¡Correcto!  +10 puntos');
       setColorMensaje('text-success');
       setTimeout(() => nuevaPalabra(), 1000);
     } else {
       audioIncorrecto.play();
       setErrores(errores + 1);
       setPuntos(Math.max(0, puntos - 3));
-      setMensaje('❌ Incorrecto. Intenta de nuevo o muestra la respuesta.');
+      setMensaje(' Incorrecto. Intenta de nuevo o muestra la respuesta.');
       setColorMensaje('text-danger');
     }
   };
@@ -119,7 +119,7 @@ export default function BodyPartsGame() {
         }}
       >
         <h1 className="text-center mb-3" style={{ color: '#ef476f' }}>
-          🧠Partes del cuerpo en inglés
+          Partes del cuerpo en inglés
         </h1>
         <p className="text-center" style={{ color: '#118ab2' }}>
           Mira la imagen y escribe su nombre en inglés.
@@ -143,9 +143,9 @@ export default function BodyPartsGame() {
               />
             )}
             <div className="mt-3">
-              <span className="badge bg-info text-dark me-1">🌟 Puntos: {puntos}</span>
-              <span className="badge bg-success me-1">✅ Aciertos: {aciertos}</span>
-              <span className="badge bg-danger">❌ Errores: {errores}</span>
+              <span className="badge bg-info text-dark me-1"> Puntos: {puntos}</span>
+              <span className="badge bg-success me-1"> Aciertos: {aciertos}</span>
+              <span className="badge bg-danger"> Errores: {errores}</span>
             </div>
           </div>
 
@@ -158,7 +158,7 @@ export default function BodyPartsGame() {
                 borderRadius: '15px',
                 fontSize: '1.1rem'
               }}
-              placeholder="✏️ Respuesta"
+              placeholder=" Respuesta"
               value={respuesta}
               onChange={(e) => setRespuesta(e.target.value)}
               onKeyDown={(e) => e.key === 'Enter' && comprobar()}
@@ -172,21 +172,21 @@ export default function BodyPartsGame() {
                 onClick={comprobar}
                 style={{ backgroundColor: '#06d6a0', color: 'white', borderRadius: '15px' }}
               >
-                ✅ Comprobar
+                 Comprobar
               </button>
               <button
                 className="btn"
                 onClick={nuevaPalabra}
                 style={{ backgroundColor: '#118ab2', color: 'white', borderRadius: '15px' }}
               >
-                🔄 Siguiente imagen
+                 Siguiente imagen
               </button>
               <button
                 className="btn"
                 onClick={mostrarRespuesta}
                 style={{ backgroundColor: '#ffd166', color: '#333', borderRadius: '15px' }}
               >
-                💡 Rendirse
+                 Rendirse
               </button>
             </div>
           </div>
@@ -194,14 +194,14 @@ export default function BodyPartsGame() {
 
         <div className="d-flex justify-content-between align-items-center mt-4">
           <small className="text-muted">
-            🖼️ Imágenes: cabeza, ojo, mano, pies, naris
+            Imágenes: cabeza, ojo, mano, pies, naris
           </small>
           <button
             className="btn btn-danger btn-sm"
             style={{ borderRadius: '15px' }}
             onClick={reiniciar}
           >
-            🔁 Reiniciar
+             Reiniciar
           </button>
         </div>
       </div>

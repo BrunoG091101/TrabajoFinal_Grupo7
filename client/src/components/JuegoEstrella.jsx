@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Image, Button } from "react-bootstrap";
 import estrella2 from "../assets/image/estrella2.png";
 
-// 🔊 Sonidos
+//  Sonidos
 import sonidoClick from "../assets/sound/boton.mp3";
 import sonidoGanar from "../assets/sound/Correcto.mp3";
 
@@ -13,7 +13,7 @@ function JuegoEstrella() {
   const [isVisible, setIsVisible] = useState(true);
   const [juegoTerminado, setJuegoTerminado] = useState(false);
 
-  // 🎵 Inicializar objetos de audio
+  //  Inicializar objetos de audio
   const audioClick = new Audio(sonidoClick);
   const audioGanar = new Audio(sonidoGanar);
 
@@ -32,7 +32,7 @@ function JuegoEstrella() {
   function atraparEstrella() {
     if (juegoTerminado) return;
 
-    audioClick.play(); // 🔊 Sonido al hacer clic
+    audioClick.play(); //  Sonido al hacer clic
     setPuntaje((prev) => prev + 1);
     setIsVisible(false);
 
@@ -46,7 +46,7 @@ function JuegoEstrella() {
 
   useEffect(() => {
     if (puntaje >= 10) {
-      audioGanar.play(); // 🔊 Sonido al ganar
+      audioGanar.play(); //  Sonido al ganar
       setMensaje("¡Ganaste!");
       setJuegoTerminado(true);
       setIsVisible(false);
