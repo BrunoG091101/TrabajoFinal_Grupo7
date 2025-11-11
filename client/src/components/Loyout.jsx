@@ -32,31 +32,46 @@ function Layout() {
               </Nav.Link>
 
               {/* Mostrar "Juegos" si está autenticado o es rol andmin*/}
-              {(isAuthenticated || user?.rol==="admin") &&(
+              {(isAuthenticated || user?.rol === "admin") && (
                 <Nav.Link as={NavLink} to="/juegos">
                   Juegos
                 </Nav.Link>
               )}
-                <NavDropdown title="Proyectos" id="Proyectos-dropdown">
-                  <NavDropdown.Item href="/proyecto02">Proyecto02</NavDropdown.Item>
-                  <NavDropdown.Item href="/proyecto03">Proyecto03</NavDropdown.Item>
-                  <NavDropdown.Item href="/proyecto04">Proyecto04</NavDropdown.Item>
-                  <NavDropdown.Item href="/proyecto05">Proyecto05</NavDropdown.Item>  
-                </NavDropdown>
+              <NavDropdown title="Proyectos" id="Proyectos-dropdown">
+                <NavDropdown.Item href="/proyecto02">
+                  Proyecto02
+                </NavDropdown.Item>
+                <NavDropdown.Item href="/proyecto03">
+                  Proyecto03
+                </NavDropdown.Item>
+                <NavDropdown.Item href="/proyecto04">
+                  Proyecto04
+                </NavDropdown.Item>
+                <NavDropdown.Item href="/proyecto05">
+                  Proyecto05
+                </NavDropdown.Item>
+              </NavDropdown>
             </Nav>
 
             {/* Menú de usuario */}
             {isAuthenticated && user && (
               <Nav className="ms-auto">
+                <Nav.Item className="d-flex align-items-center px-3">
+                  <span className="text-light fw-bold">🏆 {user.puntaje}</span>
+                </Nav.Item>
                 <NavDropdown title={user.username} id="user-dropdown">
-                  <NavDropdown.Item onClick={logout}>Cerrar sesión</NavDropdown.Item>
+                  <NavDropdown.Item onClick={logout}>
+                    Cerrar sesión
+                  </NavDropdown.Item>
                 </NavDropdown>
               </Nav>
             )}
-            {!isAuthenticated && !user &&(
+            {!isAuthenticated && !user && (
               <Nav className="registrar">
                 <NavDropdown title="Perfil">
-                  <NavDropdown.Item href="/registrar">Registrar</NavDropdown.Item>
+                  <NavDropdown.Item href="/registrar">
+                    Registrar
+                  </NavDropdown.Item>
                 </NavDropdown>
               </Nav>
             )}
